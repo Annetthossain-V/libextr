@@ -2,10 +2,7 @@
 #include <vector>
 #include <string>
 
-
-namespace extr {
-
-std::vector<std::string> split_tokens_cxx(std::string str, std::string delims) {
+std::vector<std::string> extr::split_tokens_cxx(std::string str, std::string delims) {
   std::vector<std::string> tokens;
 
   size_t count = 0;
@@ -18,6 +15,4 @@ std::vector<std::string> split_tokens_cxx(std::string str, std::string delims) {
 
   _core_free_split_arr(c_tokens, count);
   return tokens;
-}
-
 }
