@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(extr C CXX)
 
-file(GLOB SRCS "src/string/*.c" "src/string/*.cxx" "src/cmdline/*.cxx" "src/core/*.c")
+file(GLOB SRCS "src/string/*.c" "src/string/*.cxx" "src/cmdline/*.cxx" "src/core/*.c" "src/io/*.cxx")
 
 add_library(${PROJECT_NAME} SHARED ${SRCS})
 
@@ -14,7 +14,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 target_compile_options(${PROJECT_NAME} PRIVATE
   $<$<CONFIG:Debug>: -g -O0 -Wall -Wextra>
-  $<$<CONFIG:Release>: -O3 -DNDEBUG -fstack-protector>
+  $<$<CONFIG:Release>: -O3 -DNDEBUG -fstack-protector -mtune=native -march=x86-64-v2>
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE

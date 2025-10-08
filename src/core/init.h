@@ -1,13 +1,12 @@
 #pragma once
-#include <stdbool.h>
 
 #ifdef __cplusplus
 namespace extr {
 extern "C" {
 #endif
 
-extern bool ENABLE_EXCEPTION;
-extern bool ENABLE_LOG_CXX;
+void extr_init();
+void extr_finalize();
 
 #ifdef __cplusplus
 } }
