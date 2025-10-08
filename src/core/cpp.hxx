@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include <exception>
 
-namespace {
+namespace extr {
 
 template <typename Func, typename... Args>
 auto call_except(Func&& func, Args&&... args) -> std::invoke_result_t<Func, Args...> {
