@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
-project(extr C CXX)
+project(extr C CXX ASM)
 
 file(GLOB SRCS "src/string/*.c" "src/string/*.cxx" "src/cmdline/*.cxx" "src/core/*.c" "src/io/*.cxx"
-                "src/os/unix/*.c")
+                "src/os/unix/*.c" "src/asm_unix_x86/*.s")
 
 add_library(${PROJECT_NAME} SHARED ${SRCS})
 
