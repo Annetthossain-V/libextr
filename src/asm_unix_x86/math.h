@@ -1,5 +1,9 @@
 #pragma once
 
+#if !defined(__unix__) && !defined(__x86_64__)
+#error "unsupported target"
+#endif
+
 #ifdef __cplusplus
 namespace extr {
 extern "C" {
