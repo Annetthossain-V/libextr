@@ -16,6 +16,10 @@ public:
   void what() const {
     spdlog::error("{}", this->err);
   }
+
+  ITEM get() const {
+    return this->err;
+  }
 private:
   ITEM err;
 };
