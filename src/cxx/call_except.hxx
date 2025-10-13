@@ -6,6 +6,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <exception>
+#include "extr_except.hxx"
 
 namespace extr {
 
@@ -22,6 +23,15 @@ auto call_except(Func&& func, Args&&... args) -> std::invoke_result_t<Func, Args
     }
   } catch (const std::exception& e) {
     std::fprintf(stderr, "[Exception] %s\n", e.what());
+    std::exit(EXIT_FAILURE);
+  } catch (const except<std::string>& e) {
+    e.what();
+    std::exit(EXIT_FAILURE);
+  } catch (const except<char*>& e) {
+    e.what();
+    std::exit(EXIT_FAILURE);
+  } catch (const except<int>& e) {
+    e.what();
     std::exit(EXIT_FAILURE);
   } catch (...) {
     std::fprintf(stderr, "[Exception] Unknown-Type\n");
