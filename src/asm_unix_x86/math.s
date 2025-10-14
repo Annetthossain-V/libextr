@@ -37,7 +37,7 @@ swap_endian32:
 
 .globl swap_endian16
 swap_endian16:
-  movzx ax, di 
+  movzx eax, di 
   xchg ah, al
   ret
 
