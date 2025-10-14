@@ -22,3 +22,23 @@ pow_extr:
 
   pop rbx
   ret
+
+.globl swap_endian64
+swap_endian64:
+  mov rax, rdi
+  bswap rax 
+  ret
+
+.globl swap_endian32
+swap_endian32:
+  mov eax, edi
+  bswap eax
+  ret
+
+.globl swap_endian16
+swap_endian16:
+  movzx ax, di 
+  xchg ah, al
+  ret
+
+
